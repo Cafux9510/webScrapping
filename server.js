@@ -1,5 +1,7 @@
-const express = require("express");
 const puppeteer = require("puppeteer");
+const path = require("path");
+
+const express = require("express");
 const cors = require("cors");
 
 const app = express();
@@ -44,6 +46,8 @@ async function scrapeQuePasaSalta({ onProgress, cancelar } = {}) {
   let contador = 0;
   const browser = await puppeteer.launch({
     headless: true,
+    executablePath:
+      "/opt/render/.cache/puppeteer/chrome/linux-137.0.7151.119/chrome-linux64/chrome",
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
   const page = await browser.newPage();
@@ -175,6 +179,8 @@ app.listen(PORT, () => {
 async function scrapeElTribuno() {
   const browser = await puppeteer.launch({
     headless: true,
+    executablePath:
+      "/opt/render/.cache/puppeteer/chrome/linux-137.0.7151.119/chrome-linux64/chrome",
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
   const page = await browser.newPage();
@@ -289,10 +295,10 @@ async function scrapeElTribuno() {
 }
 
 async function scrapeExpreso() {
-  const puppeteer = require("puppeteer");
-
   const browser = await puppeteer.launch({
     headless: true,
+    executablePath:
+      "/opt/render/.cache/puppeteer/chrome/linux-137.0.7151.119/chrome-linux64/chrome",
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
   const page = await browser.newPage();
@@ -387,10 +393,10 @@ async function scrapeExpreso() {
 }
 
 async function scrapeInformateSalta() {
-  const puppeteer = require("puppeteer");
-
   const browser = await puppeteer.launch({
     headless: true,
+    executablePath:
+      "/opt/render/.cache/puppeteer/chrome/linux-137.0.7151.119/chrome-linux64/chrome",
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
   const page = await browser.newPage();
@@ -717,7 +723,9 @@ app.get("/scrape", async (req, res) => {
     scrapingCancelado = false;
     sendProgress(5); // Arranca
     const browser = await puppeteer.launch({
-      headless: "new",
+      headless: true,
+      executablePath:
+        "/opt/render/.cache/puppeteer/chrome/linux-137.0.7151.119/chrome-linux64/chrome",
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
     });
 
