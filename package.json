@@ -1,0 +1,19 @@
+{
+  "name": "backend-scraper",
+  "version": "1.0.0",
+  "description": "Servidor de scraping para noticias",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "postinstall": "npx puppeteer browsers install chrome"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "puppeteer": "^24.10.2"
+  }
+}
