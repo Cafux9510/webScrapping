@@ -166,8 +166,10 @@ async function scrapeQuePasaSalta({ onProgress, cancelar } = {}) {
   return noticiasFormateadas;
 }
 
-app.listen(3000, () => {
-  console.log("🚀 Servidor corriendo en http://localhost:3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`🚀 Servidor corriendo en el puerto ${PORT}`);
 });
 
 async function scrapeElTribuno() {
@@ -615,10 +617,6 @@ function sendProgress(progress) {
     client.write(`data: ${JSON.stringify({ progress })}\n\n`);
   });
 }
-
-app.listen(3000, () => {
-  console.log("✅ Servidor de scraping corriendo en http://localhost:3000");
-});
 
 const scrapeCorredor = async (corredor, browser) => {
   const corredorPage = await browser.newPage();
