@@ -2,9 +2,6 @@ const express = require("express");
 const puppeteer2 = require("puppeteer");
 const fs = require("fs");
 
-console.log("📂 Archivos en /app:");
-console.log(fs.readdirSync(__dirname));
-
 const cors = require("cors");
 
 const axios = require("axios");
@@ -15,7 +12,12 @@ const StealthPlugin = require("puppeteer-extra-plugin-stealth");
 puppeteer_.use(StealthPlugin());
 
 // const { createClient } = require("@supabase/supabase-js");
-const { supabase } = require("./supabaseClient");
+try {
+  const { supabase } = require("./supabaseClient");
+  console.log("✅ Supabase cargado");
+} catch (err) {
+  console.error("❌ Error real:", err);
+}
 
 const client = axios.create({
   headers: {
