@@ -11,7 +11,7 @@ const StealthPlugin = require("puppeteer-extra-plugin-stealth");
 puppeteer_.use(StealthPlugin());
 
 // const { createClient } = require("@supabase/supabase-js");
-const { supabase } = require("./supabaseClient");
+const { supabase } = require("../supabaseClient");
 
 const client = axios.create({
   headers: {
