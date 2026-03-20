@@ -886,7 +886,7 @@ async function ejecutarScraping(jobId) {
     // Prediccion
     try {
       const response = await axios.post(
-        "http://localhost:5000/procesar_noticias",
+        "https://webscrapping-production-2ac2.up.railway.app/procesar_noticias",
       );
 
       noticiasProcesadas = response.data.procesadas;
