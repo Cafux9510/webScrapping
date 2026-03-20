@@ -1,6 +1,10 @@
 const express = require("express");
 const puppeteer2 = require("puppeteer");
 const fs = require("fs");
+
+console.log("📂 Archivos en /app:");
+console.log(fs.readdirSync(__dirname));
+
 const cors = require("cors");
 
 const axios = require("axios");
